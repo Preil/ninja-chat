@@ -6,6 +6,7 @@
         <form @submit.prevent="enterChat">
           <label for="name">Enter your name:</label>
           <input type="text" id="name" v-model="name">
+          <p v-if="feedback" class="red-text">{{ feedback }}</p>
           <button class="btn teal">Enter Chat</button>
         </form>
       </div>
@@ -18,12 +19,17 @@ export default {
   name: 'Welcome',
   data () {
     return {
-      name: null
+      name: null,
+      feedback: null
     }
   },
   methods: {
     enterChat() {
-      console.log(this.name)
+      if(this.name){
+
+      } else {
+        this.feedback = 'You have to enter a name to join'
+      }
     }
   }
 }
